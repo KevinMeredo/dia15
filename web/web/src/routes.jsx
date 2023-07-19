@@ -33,7 +33,7 @@ export function Navigations() {
                     )}
                 />
                 <Route
-                    path="customers"
+                    path="/customers"
                     element={(
                         <PrivateRoute>
                             <Customers/>

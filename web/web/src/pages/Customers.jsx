@@ -33,17 +33,17 @@ export function Customers() {
     async function removeCustomer(id) {
         try {
             await deleteCustomer(id);
-            await findcustomers();
+            await findCustomers();
         } catch (error) {
             console.error(error);
         }
     }
 
-    async function addcustomer(data) {
+    async function addCustomer(data) {
         try {
             await createCustomer(data);
             setIsCreated(false);
-            await findcustomers();
+            await findCustomers();
         } catch (error) {
             console.error(error);
         }
@@ -54,7 +54,7 @@ export function Customers() {
             await updateCustomer({
                 id: data.id,
                 nameCustomer: data.nameCustomer,
-                email: data.email
+                emailCustomer: data.emailCustomer
             });
             await findCustomers();
         } catch (error) {
@@ -74,6 +74,11 @@ export function Customers() {
                         sessionStorage.removeItem('token');
                         navigate('/');
                     }}>Sair</Button>
+                </Col>
+                <Col>
+                    <Button variant="outline-secondary" onClick={() => {
+                        navigate('/foods');
+                    }}>Alimentos</Button>
                 </Col>
             </Row>
             <Col className="w-50 m-auto">

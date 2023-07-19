@@ -75,6 +75,11 @@ export function Foods() {
                         navigate('/');
                     }}>Sair</Button>
                 </Col>
+                <Col>
+                    <Button variant="outline-secondary" onClick={() => {
+                        navigate('/customers');
+                    }}>Clientes</Button>
+                </Col>
             </Row>
             <Col className="w-50 m-auto">
                 {foods && foods.length > 0

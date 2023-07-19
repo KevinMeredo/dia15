@@ -1,8 +1,8 @@
 import { api } from "./api";
 
-export async function getFoods() {
+export async function getCustomers() {
     const accessToken = sessionStorage.getItem('token');
-    const result = await api.get('/foods', {
+    const result = await api.get('/customers', {
         headers: {
             'Authorization': `Bearer ${JSON.parse(accessToken)}`
         }
@@ -24,7 +24,7 @@ export async function updateCustomer(data) {
     const accessToken = sessionStorage.getItem('token');
     const result = await api.put(`/customer/${data.id}`, {
         nome: data.nameCustomer,
-        email: data.email
+        email: data.emailCustomer
     }, {
         headers: {
             'Authorization': `Bearer ${JSON.parse(accessToken)}`
@@ -37,7 +37,7 @@ export async function createCustomer(data) {
     const accessToken = sessionStorage.getItem('token');
     const result = await api.post('/customer', {
         nome: data.nameCustomer,
-        email: data.email
+        email: data.emailCustomer
     }, {
         headers: {
             'Authorization': `Bearer ${JSON.parse(accessToken)}`

@@ -1,6 +1,7 @@
 require('../database');
 
 const { FoodModel } = require('../models/food-model');
+const { CustomerModel } = require('../models/customer-model')
 
 const foods = [
     {
@@ -73,11 +74,28 @@ const foods = [
     },
 ];
 
+const customers = [
+    {
+        nome: 'Kevin',
+        email: 'kevinmedeiros159@gmail.com'
+    },
+    {
+        nome: 'Jorge',
+        email: 'Jorge23@gmail.com'
+    },
+];
+
 (async () => {
     for (let food of foods) {
         await FoodModel.create({
             nome: food.nome,
             unidadeMedida: food.unidadeMedida
+        });
+    }
+    for (let customer of customers) {
+        await CustomerModel.create({
+            nome: customer.nome,
+            email: customer.email
         });
     }
     console.log('Tudo cadastrado!');
